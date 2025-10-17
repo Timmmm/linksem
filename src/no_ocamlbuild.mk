@@ -72,7 +72,9 @@ install_zarith install_num: install_%:
 
 .PHONY: install
 install: install_zarith install_num
-	-ocamlfind remove -destdir "$(INSTALLDIR)" linksem
+	echo "INSTALLDIR is $(INSTALLDIR)"
+	-echo "-INSTALLDIR is $(INSTALLDIR")
+	ocamlfind remove -destdir "$(INSTALLDIR)" linksem
 	ocamlfind install -destdir "$(INSTALLDIR)" -patch-version "$(LINKSEMVERSION)" linksem META
 	touch $@
 
